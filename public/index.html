@@ -787,7 +787,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ============================================================
    checklists inside service cards + small annotated notes
    ============================================================ */
-.checklist{display:grid;gap:11px;margin-top:20px;padding-top:18px;border-top:1px dashed var(--rule-2)}
+.card-sub{font-size:13px;font-style:italic;color:var(--muted);margin-top:-6px;margin-bottom:14px;font-weight:500}
+.card-result{margin-top:18px;padding:10px 14px;background:var(--green-tint);border:1px solid rgba(16,185,129,0.28);border-left:3px solid var(--green);border-radius:8px;font-size:13px;font-weight:600;color:var(--field);line-height:1.45}
+.checklist{display:grid;gap:11px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--rule-2)}
 .checklist li{display:flex;gap:11px;align-items:flex-start;font-size:14.4px;line-height:1.55;color:var(--muted)}
 .checklist li svg{width:18px;height:18px;flex:none;color:var(--green);margin-top:2px}
 .checklist li b{font-weight:600;color:var(--text)}
@@ -1746,79 +1748,85 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
       <article class="card rv">
         <span class="card-idx num">01</span>
         <span class="card-ic"><svg><use href="#i-layers"/></svg></span>
-        <h3>Toʻliq buxgalteriya autsorsingi</h3>
-        <p>Barcha birlamchi hujjatlarni yuritish, 1C bazani olib borish, bank-klient, hisob-faktura (Didox) va oylik/choraklik soliq hisobotlarini 100% oʻz zimmamizga olamiz.</p>
-        <ul class="checklist" style="margin-top:20px">
-          <li><svg><use href="#i-check-c"/></svg><span>Soliq va statistika hisobotlari</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Didox va Factura.uz operatsiyalari</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Bank va kassa amallari</span></li>
+        <h3>Toʻliq Buxgalteriya Autsorsingi</h3>
+        <div class="card-sub">Full Accounting Outsourcing</div>
+        <ul class="checklist" style="margin-top:16px">
+          <li><svg><use href="#i-check-c"/></svg><span>Birlamchi hujjatlarni (Faktura, Shartnoma, Akt) yuritish</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>1C va Didox/Soliq tizimlarida hisob yuritish</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Barcha turdagi soliq hisobotlarini topshirish</span></li>
         </ul>
-        <div style="margin-top:22px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
+        <div class="card-result"><strong>Natija:</strong> Buxgalteriya shtatisiz 100% kafolatlangan hisob</div>
+        <div style="margin-top:20px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
       </article>
 
       <article class="card rv" style="--d:70ms">
         <span class="card-idx num">02</span>
         <span class="card-ic"><svg><use href="#i-percent"/></svg></span>
-        <h3>Soliq optimizatsiyasi &amp; konsalting</h3>
-        <p>Qonuniy yoʻllar bilan soliq yukini kamaytirish, toʻgʻri soliq rejimini (aylanmadan soliq yoki QQS) tanlash va tavakkalchiliklarni tahlil qilish.</p>
-        <ul class="checklist" style="margin-top:20px">
-          <li><svg><use href="#i-check-c"/></svg><span>Soliq yukini kamaytirish yoʻllari</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>QQSni optimal hisoblash</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Eksport/import operatsiyalari</span></li>
+        <h3>Soliq Optimizatsiyasi va Maslahat</h3>
+        <div class="card-sub">Tax Advisory &amp; Optimization</div>
+        <ul class="checklist" style="margin-top:16px">
+          <li><svg><use href="#i-check-c"/></svg><span>Qonuniy yoʻl bilan soliq yukini kamaytirish</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Soliq rejimini toʻgʻri tanlash (AOS yoki QQS)</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Soliq tekshiruvlarida va xatlarga javob berishda koʻmak</span></li>
         </ul>
-        <div style="margin-top:22px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
+        <div class="card-result"><strong>Natija:</strong> Soliq risklari va jarimalardan himoya</div>
+        <div style="margin-top:20px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
       </article>
 
       <article class="card rv" style="--d:140ms">
         <span class="card-idx num">03</span>
         <span class="card-ic"><svg><use href="#i-refresh"/></svg></span>
-        <h3>Buxgalteriyani tiklash &amp; audit</h3>
-        <p>Oldingi buxgalteringiz xatolarini tuzatish, oʻtkazib yuborilgan hisobotlarni qayta topshirish hamda soliq tekshiruvlariga tayyorlanish.</p>
-        <ul class="checklist" style="margin-top:20px">
-          <li><svg><use href="#i-check-c"/></svg><span>Baza va hisobotlarni audit qilish</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Notoʻgʻri hisob-kitoblarni tuzatish</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Kameral tekshiruvda yordam</span></li>
+        <h3>Buxgalteriya Hisobini Tiklash</h3>
+        <div class="card-sub">Accounting Restoration</div>
+        <ul class="checklist" style="margin-top:16px">
+          <li><svg><use href="#i-check-c"/></svg><span>Oʻtkazib yuborilgan yoki xato yuritilgan hisoblarni qayta tuzish</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Birlamchi hujjatlar va balansni moslashtirish</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Aniq taxminiy jarimalarni hisoblash va bartaraf etish</span></li>
         </ul>
-        <div style="margin-top:22px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
+        <div class="card-result"><strong>Natija:</strong> Soliq organlari va audit oldida toza hisobot</div>
+        <div style="margin-top:20px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
       </article>
 
       <article class="card rv">
         <span class="card-idx num">04</span>
         <span class="card-ic"><svg><use href="#i-users"/></svg></span>
-        <h3>Kadrlar hisobi &amp; Mehnat.uz</h3>
-        <p>Xodimlarni ishga qabul qilish, buyruqlar, mehnat shartnomalarini MY.MEHNAT.UZ tizimiga kiritish va oylik maoshlarini hisoblash.</p>
-        <ul class="checklist" style="margin-top:20px">
-          <li><svg><use href="#i-check-c"/></svg><span>My.mehnat.uz roʻyxatdan oʻtkazish</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Ish haqi va INPS hisobi</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Mehnat daftarchalarini rasmiylashtirish</span></li>
+        <h3>Kadrlar Hisobi va Oylik Hisoblash</h3>
+        <div class="card-sub">Payroll &amp; HR Administration</div>
+        <ul class="checklist" style="margin-top:16px">
+          <li><svg><use href="#i-check-c"/></svg><span>Mehnat shartnomalari va YAMMT (my.mehnat.uz) yuritish</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Oylik maosh, otpusk va bolnichniylarni hisoblash</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>INPS va daromad soligʻi hisobotlarini yuborish</span></li>
         </ul>
-        <div style="margin-top:22px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
+        <div class="card-result"><strong>Natija:</strong> Mehnat qonunchiligiga toʻliq rioya qilish</div>
+        <div style="margin-top:20px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
       </article>
 
       <article class="card rv" style="--d:70ms">
         <span class="card-idx num">05</span>
-        <span class="card-ic"><svg><use href="#i-building"/></svg></span>
-        <h3>MChJ va YaTT ochish / yopish</h3>
-        <p>Yangi korxona ochish, ustav shakllantirish, guvohnoma va muhr olish, bank hisobraqam ochish hamda qayta tashkillashtirish.</p>
-        <ul class="checklist" style="margin-top:20px">
-          <li><svg><use href="#i-check-c"/></svg><span>1 kunda MChJ yoki YaTT ochish</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Bank tanlash va hisobraqam ochish</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Korxonani tugatish (likvidatsiya)</span></li>
+        <span class="card-ic"><svg><use href="#i-file-check"/></svg></span>
+        <h3>ERI va Didox/E-Faktura Integratsiyasi</h3>
+        <div class="card-sub">E-Invoicing &amp; ERI Setup</div>
+        <ul class="checklist" style="margin-top:16px">
+          <li><svg><use href="#i-check-c"/></svg><span>Didox.uz, Soliq.uz va Tasnif tizimlari bilan ishlash</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Elektron raqamli imzo (ERI) kalitlarini sozlash</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Tashqi savdo (E-Kontrakt) hisobini yuritish</span></li>
         </ul>
-        <div style="margin-top:22px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
+        <div class="card-result"><strong>Natija:</strong> Hujjatlar aylanishini 100% raqamlashtirish</div>
+        <div style="margin-top:20px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
       </article>
 
       <article class="card rv" style="--d:140ms">
         <span class="card-idx num">06</span>
-        <span class="card-ic"><svg><use href="#i-headset"/></svg></span>
-        <h3>Ekspress soliq konsultatsiyasi</h3>
-        <p>Shoshilinch soliq va moliya savollari boʻyicha yakka tartibda (onlayn yoki oflayn) chuqur tahliliy konsultatsiya.</p>
-        <ul class="checklist" style="margin-top:20px">
-          <li><svg><use href="#i-check-c"/></svg><span>Soliq xatlariga javob tayyorlash</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Shartnomalarni soliq ekspertizasi</span></li>
-          <li><svg><use href="#i-check-c"/></svg><span>Zoom yoki yuzma-yuz uchrashuv</span></li>
+        <span class="card-ic"><svg><use href="#i-building"/></svg></span>
+        <h3>Korxona Ochish va Tugatish</h3>
+        <div class="card-sub">Business Registration &amp; Liquidation</div>
+        <ul class="checklist" style="margin-top:16px">
+          <li><svg><use href="#i-check-c"/></svg><span>MChJ va YaTTlarni davlat roʻyxatidan oʻtkazish</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Bankda hisobraqam ochish va bank-klient sozlash</span></li>
+          <li><svg><use href="#i-check-c"/></svg><span>Korxonani ixtiyoriy tugatish yoki qayta tashkil etish</span></li>
         </ul>
-        <div style="margin-top:22px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
+        <div class="card-result"><strong>Natija:</strong> Biznesni yuridik va moliyaviy toʻgʻri boshlash</div>
+        <div style="margin-top:20px"><a class="link-more" href="#aloqa" data-lead="service">Buyurtma berish <svg><use href="#i-arrow"/></svg></a></div>
       </article>
     </div>
   </div>
