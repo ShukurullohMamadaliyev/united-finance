@@ -1024,7 +1024,402 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
 .team-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 20px;margin-top:clamp(32px,4vw,48px);text-align:center}
 .team-cta p{color:var(--muted);font-size:15.5px}
 @media (prefers-reduced-motion:reduce){.team-card:hover figure,.team-card:hover img{transform:none}}
+
+/* ============================================================
+   UNITED FINANCE AI — Chat Component Styles
+   ============================================================ */
+.live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  margin-right: 4px;
+  animation: livePulse 2s infinite;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .4; transform: scale(.85); }
+}
+
+.ai-console {
+  background: var(--paper-2);
+  border: 1px solid var(--rule-2);
+  border-radius: 20px;
+  box-shadow: 0 16px 40px -10px rgba(6,37,31,0.08), 0 4px 12px rgba(6,37,31,0.03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.ai-head {
+  padding: 1.1rem 1.4rem;
+  background: var(--field);
+  color: var(--text-i);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule-i);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ai-brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.ai-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--green), var(--green-3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.35);
+  flex-shrink: 0;
+}
+.ai-avatar svg { width: 20px; height: 20px; }
+
+.ai-title {
+  font-family: var(--font-display, 'Archivo', sans-serif);
+  font-weight: 700;
+  font-size: 1.02rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fff;
+}
+
+.ai-badge-on {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(16,185,129,0.18);
+  color: var(--green-2);
+  border: 1px solid rgba(16,185,129,0.3);
+  letter-spacing: 0.02em;
+}
+
+.ai-subtitle {
+  font-size: 0.78rem;
+  color: var(--muted-i);
+  margin-top: 0.1rem;
+}
+
+.ai-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: var(--text-i);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.ai-btn-ghost:hover {
+  background: rgba(255,255,255,0.16);
+  color: #fff;
+}
+
+.ai-presets {
+  padding: 0.75rem 1.4rem;
+  background: var(--paper-3);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.ai-presets::-webkit-scrollbar { display: none; }
+
+.ai-presets-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  margin-right: 0.25rem;
+}
+
+.ai-chip {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule-2);
+  color: var(--text);
+  font-size: 0.76rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.ai-chip:hover {
+  background: var(--green-tint);
+  border-color: var(--green);
+  color: var(--green-3);
+}
+
+.ai-messages {
+  padding: 1.4rem;
+  min-height: 380px;
+  max-height: 520px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: #ffffff;
+  scroll-behavior: smooth;
+}
+
+.ai-msg {
+  display: flex;
+  gap: 0.85rem;
+  max-width: 90%;
+  animation: aiFadeIn .25s ease-out;
+}
+@keyframes aiFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ai-msg--user {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.ai-msg-av {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--green-tint);
+  color: var(--green-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(16,185,129,0.25);
+}
+.ai-msg-av svg { width: 17px; height: 17px; }
+
+.ai-msg--user .ai-msg-av {
+  background: var(--field-2);
+  color: #fff;
+  border: none;
+}
+
+.ai-msg-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ai-bubble {
+  padding: 0.9rem 1.15rem;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.ai-msg--bot .ai-bubble {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top-left-radius: 4px;
+}
+
+.ai-msg--user .ai-bubble {
+  background: var(--field);
+  color: #ffffff;
+  border-top-right-radius: 4px;
+}
+
+.ai-msg--bot .ai-bubble p { margin-bottom: 0.65rem; }
+.ai-msg--bot .ai-bubble p:last-child { margin-bottom: 0; }
+.ai-msg--bot .ai-bubble strong { color: var(--field); font-weight: 600; }
+.ai-msg--bot .ai-bubble ul, .ai-msg--bot .ai-bubble ol { margin: 0.5rem 0 0.75rem 1.3rem; }
+.ai-msg--bot .ai-bubble li { margin-bottom: 0.3rem; }
+.ai-msg--bot .ai-bubble table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.82rem;
+  border: 1px solid var(--rule-2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.ai-msg--bot .ai-bubble th {
+  background: var(--paper-3);
+  color: var(--field);
+  font-weight: 600;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--rule-2);
+  text-align: left;
+}
+.ai-msg--bot .ai-bubble td {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--rule);
+  background: #ffffff;
+}
+.ai-msg--bot .ai-bubble code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82em;
+  background: var(--green-tint);
+  color: var(--green-3);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid rgba(16,185,129,0.2);
+}
+.ai-msg--bot .ai-bubble pre {
+  background: var(--field) !important;
+  color: var(--text-i);
+  padding: 0.8rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0.65rem 0;
+}
+.ai-msg--bot .ai-bubble pre code {
+  background: transparent;
+  border: none;
+  color: var(--text-i);
+  padding: 0;
+}
+.ai-msg--bot .ai-bubble blockquote {
+  border-left: 3px solid var(--green);
+  padding-left: 0.75rem;
+  margin: 0.6rem 0;
+  color: var(--muted);
+  background: var(--green-tint);
+  padding: 0.4rem 0.75rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.ai-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.2rem;
+}
+
+.ai-action-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 0.74rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: all .15s ease;
+}
+.ai-action-btn:hover {
+  color: var(--green-3);
+  background: var(--green-tint);
+}
+.ai-action-btn svg { width: 13px; height: 13px; }
+
+.ai-typing::after {
+  content: '▋';
+  display: inline-block;
+  color: var(--green);
+  animation: aiBlink 1s infinite;
+  margin-left: 3px;
+}
+@keyframes aiBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.ai-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.2rem;
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule-2);
+  position: relative;
+}
+
+#aiMessageInput {
+  flex: 1;
+  border: 1px solid var(--rule-2);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--paper);
+  resize: none;
+  max-height: 120px;
+  outline: none;
+  transition: all .2s ease;
+}
+#aiMessageInput:focus {
+  border-color: var(--green);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.15);
+}
+
+.ai-send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--green), var(--green-3));
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+  transition: all .2s ease;
+}
+.ai-send-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16,185,129,0.4);
+}
+.ai-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.ai-send-btn svg { width: 18px; height: 18px; }
+
+.ai-foot-hint {
+  padding: 0.5rem 1.4rem 0.8rem;
+  background: var(--paper-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--muted);
+  border-top: 1px dashed var(--rule);
+}
+@media (max-width: 768px) {
+  .ai-foot-hint span:last-child { display: none; }
+  .ai-messages { min-height: 300px; max-height: 400px; padding: 1rem; }
+  .ai-head { padding: 0.9rem 1rem; }
+  .ai-msg { max-width: 96%; }
+}
+
 </style>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
@@ -1085,6 +1480,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
       <a href="#kalkulyator">Kalkulyator</a>
       <a href="#audit">Ekspress audit</a>
       <a href="#natijalar">Natijalar</a>
+      <a href="#ai-maslahat">AI Maslahatchi</a>
       <a href="#xodimlar">Xodimlar</a>
       <a href="#faq">Savollar</a>
     </nav>
@@ -1106,7 +1502,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
   <a class="m-link" href="#natijalar">Natijalar <span class="num">05</span></a>
   <a class="m-link" href="#nega-biz">Nega aynan biz? <span class="num">06</span></a>
   <a class="m-link" href="#jarayon">Ishlash jarayoni <span class="num">07</span></a>
-  <a class="m-link" href="#fikrlar">Mijozlar fikri <span class="num">08</span></a>
+  <a class="m-link" href="#ai-maslahat">AI Maslahatchi <span class="num">08</span></a>
   <a class="m-link" href="#xodimlar">Bizning xodimlar <span class="num">09</span></a>
   <a class="m-link" href="#faq">Savol-javob <span class="num">10</span></a>
   <div class="m-foot">
@@ -1717,54 +2113,76 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
 </section>
 
 <!-- ============================================================
-     mijozlar fikrlari
+     United Finance AI — Buxgalteriya va Soliq Maslahatchisi
      ============================================================ -->
-<section class="band band--paper" id="fikrlar">
+<section class="band band--paper" id="ai-maslahat">
   <div class="wrap">
-    <div class="tst-top rv">
-      <div class="sec-head" style="margin-bottom:0">
-        <span class="eyebrow">Mijozlar fikrlari</span>
-        <h2>Raqamlar bilan ishlaymiz, <span class="hl">odamlar bilan gaplashamiz</span></h2>
+    <div class="sec-head sec-head--split rv">
+      <div>
+        <span class="eyebrow"><span class="live-dot"></span> United Finance AI</span>
+        <h2>Buxgalteriya va soliq boʻyicha <span class="hl">AI Maslahatchi</span></h2>
       </div>
-      <div class="slider-nav" id="sliderNav">
-        <button class="snav" id="prevBtn" aria-label="Oldingi izoh"><svg><use href="#i-chev-l"/></svg></button>
-        <button class="snav" id="nextBtn" aria-label="Keyingi izoh"><svg><use href="#i-chev-r"/></svg></button>
-      </div>
+      <p>Soliq kodeksi, QQS (12%), aylanma soliq, Didox, MySoliq yoki hisobotlar boʻyicha savolingizni bering — sunʼiy intellekt maslahatchimiz 24/7 rejimida soniyalar ichida professional javob beradi.</p>
     </div>
 
-    <div class="rail rv" id="rail" tabindex="0" aria-label="Mijozlar izohlari">
-      <article class="quote">
-        <svg class="q-mark"><use href="#i-quote"/></svg>
-        <div class="q-stars" aria-label="5 dan 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <p>Avvalgi buxgalterimiz tufayli soliqdan 45 mln soʻmlik kameral xat kelgan edi. Asadbek ukamiz 3 kun ichida barcha hujjatlarni audit qilib, xatning asossiz ekanligini isbotlab berdi va jarimadan saqlab qoldi!</p>
-        <div class="q-person">
-          <span class="q-av" style="background:linear-gradient(140deg,#34D399,#10B981)">AB</span>
-          <span class="q-meta"><b>Alisher Botirov</b><span>«AutoTrade Logistics» MChJ rahbari</span></span>
+    <div class="ai-console rv" style="--d:120ms">
+      <!-- AI Header -->
+      <div class="ai-head">
+        <div class="ai-brand-badge">
+          <div class="ai-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+          </div>
+          <div>
+            <div class="ai-title">United Finance AI <span class="ai-badge-on">Onlayn 24/7</span></div>
+            <div class="ai-subtitle">Oʻzbekiston Soliq kodeksi va BHMS bazasi bilan integratsiya qilingan</div>
+          </div>
         </div>
-      </article>
+        <div class="ai-head-actions">
+          <button type="button" class="ai-btn-ghost" id="aiResetBtn" title="Suhbatni tozalash">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+            <span>Yangi savol</span>
+          </button>
+        </div>
+      </div>
 
-      <article class="quote">
-        <svg class="q-mark"><use href="#i-quote"/></svg>
-        <div class="q-stars" aria-label="5 dan 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <p>Ishlab chiqarish korxonamizni aylanmadan soliqdan QQS rejimiga oʻtkazishda Asadbekning tavsiyalari juda qoʻl keldi. Imtiyozlardan toʻgʻri foydalanib, har oy 15–20 mln soʻm soliq tejayapmiz.</p>
-        <div class="q-person">
-          <span class="q-av" style="background:linear-gradient(140deg,#6EE7B7,#059669)">NM</span>
-          <span class="q-meta"><b>Nodira Mahmudova</b><span>«EcoTex Group» muassisi</span></span>
-        </div>
-      </article>
+      <!-- Quick Chips / Presets -->
+      <div class="ai-presets" id="aiPresets">
+        <span class="ai-presets-label">Tezkor:</span>
+        <button type="button" class="ai-chip" data-prompt="Qoʻshilgan qiymat soligʻi (QQS 12%) qanday hisoblanadi va toʻlov muddatlari qachon?">📊 QQS (12%) hisobi</button>
+        <button type="button" class="ai-chip" data-prompt="Aylanmadan olinadigan soliq (4%) stavkalari va kimlar uchun amal qiladi?">💼 Aylanma soliq (4%)</button>
+        <button type="button" class="ai-chip" data-prompt="Xodimlar oylik maoshidan JShODS (12%) va Ijtimoiy soliq (12%) hisoblash formulasi qanday?">👤 Oylik va JShODS</button>
+        <button type="button" class="ai-chip" data-prompt="Didox va Faktura.uz orqali hisobvaraq-faktura yuborish va xatoni tuzatish tartibi qanday?">🧾 Didox & E-Faktura</button>
+        <button type="button" class="ai-chip" data-prompt="Soliqdan kameral soliq tekshiruvi xati kelganda buxgalter nima qilishi kerak?">⚠️ Kameral tekshiruv</button>
+      </div>
 
-      <article class="quote">
-        <svg class="q-mark"><use href="#i-quote"/></svg>
-        <div class="q-stars" aria-label="5 dan 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <p>Autsorsing xizmati doirasida 2 yildan beri ishlaymiz. Biror marta hisobot kechikmagan, Didox va fakturalar uzluksiz ketadi. Eng muhimi — oʻzimiz shtatda buxgalter ushlab oʻtirmaymiz.</p>
-        <div class="q-person">
-          <span class="q-av" style="background:linear-gradient(140deg,#6EE7B7,#0D9488)">JS</span>
-          <span class="q-meta"><b>Jahongir Solihov</b><span>IT-Agency «Digital Craft» asoschisi</span></span>
+      <!-- Messages list -->
+      <div class="ai-messages" id="aiMessagesList">
+        <div class="ai-msg ai-msg--bot">
+          <div class="ai-msg-av">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+          </div>
+          <div class="ai-msg-body">
+            <div class="ai-bubble">
+              <p>Assalomu alaykum! Men <strong>United Finance AI</strong> buxgalteriya va soliq maslahatchisiman.</p>
+              <p>Oʻzbekiston Respublikasi Soliq kodeksi, QQS, aylanma soliq, 1C dasturi, elektron hisobvaraq-fakturalar (Didox) yoki hisobotlar boʻyicha savolingizni bering — tez va aniq javob beraman.</p>
+            </div>
+          </div>
         </div>
-      </article>
+      </div>
+
+      <!-- Input form -->
+      <form class="ai-input-wrap" id="aiChatForm">
+        <textarea id="aiMessageInput" rows="1" placeholder="Buxgalteriya yoki soliq boʻyicha savolingizni yozing..." required></textarea>
+        <button type="submit" class="ai-send-btn" id="aiSendBtn" aria-label="Yuborish" title="Yuborish">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </form>
+
+      <div class="ai-foot-hint">
+        <span>💡 Javoblar Oʻzbekiston Respublikasi Soliq kodeksi va amaldagi meʼyoriy hujjatlar asosida beriladi</span>
+        <span>Enter — yuborish, Shift+Enter — yangi qator</span>
+      </div>
     </div>
-
-    <div class="dots" id="dots" role="tablist" aria-label="Izohlar navigatsiyasi"></div>
   </div>
 </section>
 
@@ -2781,5 +3199,174 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
   });
 })();
 </script>
+
+<script>
+(function () {
+  var messagesHistory = [];
+  var isSending = false;
+
+  var messagesList = document.getElementById('aiMessagesList');
+  var chatForm = document.getElementById('aiChatForm');
+  var msgInput = document.getElementById('aiMessageInput');
+  var sendBtn = document.getElementById('aiSendBtn');
+  var resetBtn = document.getElementById('aiResetBtn');
+  var presets = document.getElementById('aiPresets');
+
+  function scrollChat() {
+    if (messagesList) messagesList.scrollTop = messagesList.scrollHeight;
+  }
+
+  function autoGrow() {
+    if (!msgInput) return;
+    msgInput.style.height = 'auto';
+    msgInput.style.height = Math.min(msgInput.scrollHeight, 120) + 'px';
+  }
+
+  if (msgInput) {
+    msgInput.addEventListener('input', autoGrow);
+    msgInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
+      }
+    });
+  }
+
+  window.copyAiText = function (btn) {
+    var bubble = btn.closest('.ai-msg').querySelector('.ai-bubble');
+    if (!bubble) return;
+    var text = bubble.getAttribute('data-raw') || bubble.innerText;
+    navigator.clipboard.writeText(text).then(function () {
+      var orig = btn.innerHTML;
+      btn.innerHTML = '✓ Nusxalandi';
+      setTimeout(function () { btn.innerHTML = orig; }, 2000);
+    });
+  };
+
+  function appendUserMsg(text) {
+    var msg = document.createElement('div');
+    msg.className = 'ai-msg ai-msg--user';
+    msg.innerHTML = '<div class="ai-msg-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>' +
+      '<div class="ai-msg-body"><div class="ai-bubble">' + escapeHtml(text) + '</div></div>';
+    messagesList.appendChild(msg);
+    scrollChat();
+  }
+
+  function escapeHtml(t) {
+    return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br/>');
+  }
+
+  function parseMd(text) {
+    if (window.marked && window.marked.parse) {
+      try { return window.marked.parse(text); } catch (e) {}
+    }
+    return escapeHtml(text);
+  }
+
+  async function handleSend(text) {
+    var q = (text || (msgInput ? msgInput.value : '')).trim();
+    if (!q || isSending) return;
+
+    isSending = true;
+    if (sendBtn) sendBtn.disabled = true;
+    if (msgInput) { msgInput.value = ''; autoGrow(); }
+
+    messagesHistory.push({ role: 'user', content: q });
+    appendUserMsg(q);
+
+    // Bot message bubble
+    var botMsg = document.createElement('div');
+    botMsg.className = 'ai-msg ai-msg--bot';
+    botMsg.innerHTML = '<div class="ai-msg-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>' +
+      '<div class="ai-msg-body"><div class="ai-bubble ai-typing">Javob tayyorlanmoqda...</div>' +
+      '<div class="ai-actions" style="display:none;"><button type="button" class="ai-action-btn" onclick="copyAiText(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> Nusxa olish</button></div></div>';
+    messagesList.appendChild(botMsg);
+    scrollChat();
+
+    var bubble = botMsg.querySelector('.ai-bubble');
+    var actions = botMsg.querySelector('.ai-actions');
+    var fullText = '';
+
+    try {
+      var res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: messagesHistory, stream: true })
+      });
+      if (!res.ok) {
+        var errJson = await res.json().catch(function() { return {}; });
+        throw new Error(errJson.error || 'Server xatosi: ' + res.status);
+      }
+      if (res.body) {
+        bubble.innerHTML = '';
+        var reader = res.body.getReader();
+        var decoder = new TextDecoder('utf-8');
+        var buf = '';
+        while (true) {
+          var chunk = await reader.read();
+          if (chunk.done) break;
+          buf += decoder.decode(chunk.value, { stream: true });
+          var lines = buf.split('\n');
+          buf = lines.pop();
+          for (var i = 0; i < lines.length; i++) {
+            var l = lines[i].trim();
+            if (!l.startsWith('data:')) continue;
+            var d = l.slice(5).trim();
+            if (d === '[DONE]') continue;
+            try {
+              var json = JSON.parse(d);
+              var token = json.choices && json.choices[0] && json.choices[0].delta && json.choices[0].delta.content;
+              if (token) {
+                fullText += token;
+                bubble.innerHTML = parseMd(fullText);
+                scrollChat();
+              }
+            } catch (e) {}
+          }
+        }
+      }
+
+      bubble.classList.remove('ai-typing');
+      bubble.setAttribute('data-raw', fullText);
+      if (actions) actions.style.display = 'flex';
+      messagesHistory.push({ role: 'assistant', content: fullText });
+    } catch (err) {
+      bubble.classList.remove('ai-typing');
+      bubble.innerHTML = '<span style="color:#dc2626;">Kechirasiz, xatolik yuz berdi: ' + ((err && err.message) || err) + '. Iltimos qayta urinib ko\'ring.</span>';
+    } finally {
+      isSending = false;
+      if (sendBtn) sendBtn.disabled = false;
+      scrollChat();
+    }
+  }
+
+  if (chatForm) {
+    chatForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      handleSend();
+    });
+  }
+
+  if (presets) {
+    presets.addEventListener('click', function (e) {
+      var btn = e.target.closest('.ai-chip');
+      if (btn) {
+        var p = btn.getAttribute('data-prompt');
+        if (p) handleSend(p);
+      }
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function () {
+      messagesHistory = [];
+      messagesList.innerHTML = '<div class="ai-msg ai-msg--bot"><div class="ai-msg-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>' +
+        '<div class="ai-msg-body"><div class="ai-bubble"><p>Assalomu alaykum! Men <strong>United Finance AI</strong> buxgalteriya va soliq maslahatchisiman.</p><p>Yangi savolingizni yozing yoki yuqoridagi tezkor tugmalardan birini tanlang.</p></div></div></div>';
+      if (msgInput) msgInput.focus();
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

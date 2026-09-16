@@ -8,6 +8,7 @@ Saytdagi har bir aloqa tugmasi forma ochadi. Yuborilgan lid Telegram guruhiga tu
 2. Framework Preset: **Other**. Qolgan sozlamalarga tegmang (`vercel.json` hammasini belgilaydi).
 3. **Environment Variables** ga qoʻshing:
    - `TELEGRAM_BOT_TOKEN` = bot tokeni
+   - `DEEPSEEK_API_KEY` = DeepSeek AI API kaliti (`sk-...`)
 4. **Deploy**.
 
 Token qoʻshilgandan keyin qayta deploy qilish kerak boʻlsa: Deployments → oxirgisi → **Redeploy**.
@@ -21,7 +22,7 @@ npm start
 ```
 
 Sayt: http://localhost:5180. Node.js 20.12 yoki yangisi kerak, qoʻshimcha paket oʻrnatish shart emas.
-Token `.env` faylida boʻladi (`.env.example` namuna).
+Token va API kalit `.env` faylida boʻladi (`.env.example` namuna).
 
 > **Diqqat:** bu papkada `python -m http.server` kabi oddiy statik serverni ishga tushirmang —
 > u `.env` faylini ham tarqatadi. Faqat `npm start` dan foydalaning.
@@ -30,12 +31,13 @@ Token `.env` faylida boʻladi (`.env.example` namuna).
 
 | Fayl | Vazifasi |
 | --- | --- |
-| `public/index.html` | Saytning oʻzi. |
+| `public/index.html` | Saytning oʻzi (Buxgalteriya AI Maslahatchisi bilan). |
 | `public/images/team/` | Xodimlar rasmlari (WebP, 800×1000 va 480×600). |
+| `api/chat.js` | DeepSeek AI bilan suhbatlashuvchi serverless funksiya (Vercel). |
 | `api/lead.js` | Lidni tekshiradi va Telegram guruhiga yuboradi. Vercel'da funksiya boʻlib ishlaydi. |
 | `dev-server.js` | Faqat kompyuterda sinash uchun. Vercel'da ishlatilmaydi. |
 | `vercel.json` | Vercel sozlamalari: sayt papkasi va xavfsizlik sarlavhalari. |
-| `.env` | Bot tokeni. **Maxfiy** — GitHub'ga yuklanmaydi. |
+| `.env` | Bot tokeni va AI API kaliti. **Maxfiy** — GitHub'ga yuklanmaydi. |
 
 ## Himoya
 

@@ -21,6 +21,12 @@ try {
 }
 
 const handleLead = require('./api/lead.js');
+let handleChat;
+try {
+  handleChat = require('./api/chat.js');
+} catch (e) {
+  console.warn('Chat handler load error:', e);
+}
 
 const PORT = Number(process.env.PORT) || 5180;
 const HOST = process.env.HOST || '127.0.0.1';
@@ -87,6 +93,7 @@ http.createServer(async (req, res) => {
   try {
     const { pathname } = new URL(req.url, 'http://localhost');
     if (pathname === '/api/lead') return await handleLead(req, res);
+    if (pathname === '/api/chat' && handleChat) return await handleChat(req, res);
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       res.writeHead(405, { Allow: 'GET, HEAD' });
       return res.end();
