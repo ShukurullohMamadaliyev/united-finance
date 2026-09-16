@@ -1848,8 +1848,8 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
         <div class="calc-step">
           <div class="calc-q"><i>02</i>Soliq tizimi</div>
           <div class="opts" data-group="tax" role="group" aria-label="Soliq tizimi">
-            <button type="button" class="opt is-on" data-val="turnover">Aylanmadan soliq (4%)</button>
-            <button type="button" class="opt" data-val="vat">Umumiy soliq (QQS + foyda)</button>
+            <button type="button" class="opt is-on" data-val="aylanma">Aylanmadan soliq (1%)</button>
+            <button type="button" class="opt" data-val="qqs">QQS / Umumiy rejim</button>
           </div>
         </div>
 
@@ -1857,10 +1857,10 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
           <div class="calc-q"><i>03</i>Oylik pul aylanmasi</div>
           <div class="slider-row">
             <label for="turnoverRange" style="font-size:14px;color:var(--muted)">Aylanma hajmi</label>
-            <span class="slider-val" id="turnoverVal">50 mln soʻmgacha</span>
+            <span class="slider-val" id="turnoverVal">100 mln soʻmgacha</span>
           </div>
-          <input type="range" id="turnoverRange" min="1" max="5" step="1" value="1" aria-label="Oylik pul aylanmasi">
-          <div class="ticks"><span>&lt;50 mln</span><span>100 mln</span><span>500 mln</span><span>1 mlrd</span><span>5 mlrd+</span></div>
+          <input type="range" id="turnoverRange" min="1" max="4" step="1" value="1" aria-label="Oylik pul aylanmasi">
+          <div class="ticks"><span>100 mln</span><span>500 mln</span><span>1 mlrd</span><span>5 mlrd</span></div>
         </div>
 
         <div class="calc-step">
@@ -1869,23 +1869,23 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
             <label for="empRange" style="font-size:14px;color:var(--muted)">Shtatdagi xodimlar</label>
             <span class="slider-val" id="empVal">1-3 kishi</span>
           </div>
-          <input type="range" id="empRange" min="1" max="5" step="1" value="1" aria-label="Xodimlar soni">
-          <div class="ticks"><span>1-3</span><span>5-10</span><span>10-25</span><span>25-50</span><span>50+</span></div>
+          <input type="range" id="empRange" min="0" max="4" step="1" value="0" aria-label="Xodimlar soni">
+          <div class="ticks"><span>1-3</span><span>4-10</span><span>11-25</span><span>26-50</span><span>50+</span></div>
         </div>
 
         <div class="calc-step">
           <div class="calc-q"><i>05</i>Oylik hujjatlar hajmi (Didox / Faktura)</div>
           <div class="opts" data-group="doc" role="group" aria-label="Hujjatlar hajmi">
-            <button type="button" class="opt" data-val="low">Kichik — 20 tagacha</button>
-            <button type="button" class="opt is-on" data-val="medium">Oʻrtacha — 20–100 ta</button>
-            <button type="button" class="opt" data-val="high">Katta — 100+ ta</button>
+            <button type="button" class="opt is-on" data-val="low">20 tagacha</button>
+            <button type="button" class="opt" data-val="medium">20–100 ta</button>
+            <button type="button" class="opt" data-val="high">100+ ta</button>
           </div>
         </div>
       </div>
 
       <aside class="calc-out">
         <span class="co-label"><svg style="width:14px;height:14px" aria-hidden="true"><use href="#i-target"/></svg>Hisoblangan tarif</span>
-        <div class="co-price num" id="calcPrice">800 000</div>
+        <div class="co-price num" id="calcPrice">600 000</div>
         <div class="co-per">soʻm / oy · kafolatlangan narx</div>
 
         <div class="co-list">
@@ -1896,10 +1896,10 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
 
         <div class="co-sum">
           <span>Shakl <b id="sumForm">YaTT</b></span>
-          <span>Soliq tizimi <b id="sumTax">Aylanmadan soliq</b></span>
-          <span>Aylanma <b id="sumTurn">50 mln soʻmgacha</b></span>
+          <span>Soliq tizimi <b id="sumTax">Aylanmadan soliq (1%)</b></span>
+          <span>Aylanma <b id="sumTurn">100 mln soʻmgacha</b></span>
           <span>Xodimlar <b id="sumEmp">1-3 kishi</b></span>
-          <span>Hujjatlar <b id="sumDoc">Oʻrtacha</b></span>
+          <span>Hujjatlar <b id="sumDoc">20 tagacha</b></span>
         </div>
 
         <div style="position:relative;margin-top:24px">
@@ -2711,35 +2711,57 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
   }
 
   /* ---------------------------------------------------------
-     6. price calculator
-     Mirrors the pricing algorithm from the existing
-     youngfinteam site so quotes stay consistent.
+     6. price calculator (Mathematical Model & Tariff Matrix)
+     Formula: Jami Narx = Baza Narxi + (Xodimlar Bosqichi * Qadam Narxi) + (Hujjatlar Bosqichi * Qadam Narxi)
      --------------------------------------------------------- */
-  var turnoverLabels = ["50 mln soʻmgacha", "100 mln soʻmgacha", "500 mln soʻmgacha", "1 mlrd soʻmgacha", "5 mlrd+ soʻm"];
-  var employeeLabels = ["1-3 kishi", "5-10 kishi", "10-25 kishi", "25-50 kishi", "50+ kishi"];
+  var turnoverLabels = ["100 mln soʻmgacha", "500 mln soʻmgacha", "1 mlrd soʻmgacha", "5 mlrd soʻmgacha"];
+  var employeeLabels = ["1-3 kishi", "4-10 kishi", "11-25 kishi", "26-50 kishi", "50+ kishi"];
   var formLabels = { yatt: "YaTT", mchj: "MChJ / XK", foreign: "Chet el korxonasi" };
-  var taxLabels  = { turnover: "Aylanmadan soliq (4%)", vat: "Umumiy soliq (QQS + foyda)" };
-  var docLabels  = { low: "Kichik — 20 tagacha", medium: "Oʻrtacha — 20–100 ta", high: "Katta — 100+ ta" };
+  var taxLabels  = { aylanma: "Aylanmadan soliq (1%)", qqs: "QQS / Umumiy rejim", turnover: "Aylanmadan soliq (1%)", vat: "QQS / Umumiy rejim" };
+  var docLabels  = { low: "20 tagacha", medium: "20–100 ta", high: "100+ ta" };
 
-  var calcState = { form: "yatt", tax: "turnover", turn: 1, emp: 1, doc: "medium" };
+  var calcState = { form: "yatt", tax: "aylanma", turn: 1, emp: 0, doc: "low" };
   var priceEl = $("#calcPrice");
-  var shownPrice = 800000;
+  var shownPrice = 600000;
 
   function computePrice() {
-    var p = 800000;
-    if (calcState.form === "mchj")    p = 1500000;
-    if (calcState.form === "foreign") p = 3000000;
-    if (calcState.tax === "vat")      p *= 1.8;
-    p += (calcState.turn - 1) * 400000;
-    p += (calcState.emp  - 1) * 350000;
-    if (calcState.doc === "low")  p *= 0.85;
-    if (calcState.doc === "high") p *= 1.3;
-    return Math.round(p / 100000) * 100000;
+    var isYatt = calcState.form === "yatt";
+    var isAylanma = calcState.tax === "aylanma" || calcState.tax === "turnover";
+
+    var basePrice = 0;
+    var stepPriceEmp = 0;
+    var stepPriceDoc = 0;
+
+    if (isYatt) {
+      if (isAylanma) {
+        // YaTT (Aylanma 1%)
+        var turnoverBase = [600000, 800000, 1000000, 2000000];
+        var turnIdx = Math.min(Math.max(calcState.turn - 1, 0), 3);
+        basePrice = turnoverBase[turnIdx];
+        stepPriceEmp = 100000;
+        stepPriceDoc = 100000;
+      } else {
+        // YaTT (QQS)
+        basePrice = 3000000;
+        stepPriceEmp = 100000;
+        stepPriceDoc = 100000;
+      }
+    } else {
+      // MChJ / XK / Chet el korxonasi
+      basePrice = 3200000;
+      stepPriceEmp = 200000;
+      stepPriceDoc = 200000;
+    }
+
+    var empStep = typeof calcState.emp === "number" ? calcState.emp : 0;
+    var docMap = { low: 0, medium: 1, high: 2 };
+    var docStep = docMap[calcState.doc] !== undefined ? docMap[calcState.doc] : 0;
+
+    var totalPrice = basePrice + (empStep * stepPriceEmp) + (docStep * stepPriceDoc);
+    return totalPrice;
   }
 
   function animatePrice(from, to) {
-    /* the count-up is decoration; a hidden tab never runs rAF, so in that
-       case write the real figure straight away rather than leave it stale */
     if (reduced || from === to || document.hidden) { priceEl.textContent = groupThousands(to); return; }
 
     var t0 = null, dur = 420;
@@ -2759,13 +2781,16 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
     animatePrice(shownPrice, next);
     shownPrice = next;
 
-    $("#turnoverVal").textContent = turnoverLabels[calcState.turn - 1];
-    $("#empVal").textContent      = employeeLabels[calcState.emp - 1];
-    $("#sumForm").textContent = formLabels[calcState.form];
-    $("#sumTax").textContent  = taxLabels[calcState.tax];
-    $("#sumTurn").textContent = turnoverLabels[calcState.turn - 1];
-    $("#sumEmp").textContent  = employeeLabels[calcState.emp - 1];
-    $("#sumDoc").textContent  = docLabels[calcState.doc];
+    var turnIdx = Math.min(Math.max(calcState.turn - 1, 0), turnoverLabels.length - 1);
+    var empIdx = Math.min(Math.max(calcState.emp, 0), employeeLabels.length - 1);
+
+    $("#turnoverVal").textContent = turnoverLabels[turnIdx];
+    $("#empVal").textContent      = employeeLabels[empIdx];
+    $("#sumForm").textContent = formLabels[calcState.form] || "YaTT";
+    $("#sumTax").textContent  = taxLabels[calcState.tax] || "Aylanmadan soliq";
+    $("#sumTurn").textContent = turnoverLabels[turnIdx];
+    $("#sumEmp").textContent  = employeeLabels[empIdx];
+    $("#sumDoc").textContent  = docLabels[calcState.doc] || "20 tagacha";
   }
 
   if (priceEl) {
@@ -2792,11 +2817,13 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
 
     $("#calcOrder").addEventListener("click", function () {
       var price = groupThousands(computePrice()) + " soʻm/oy";
+      var turnIdx = Math.min(Math.max(calcState.turn - 1, 0), turnoverLabels.length - 1);
+      var empIdx = Math.min(Math.max(calcState.emp, 0), employeeLabels.length - 1);
       openLead({
         source: "Narx kalkulyatori",
         details: [
           formLabels[calcState.form], taxLabels[calcState.tax],
-          turnoverLabels[calcState.turn - 1], employeeLabels[calcState.emp - 1],
+          turnoverLabels[turnIdx], employeeLabels[empIdx],
           docLabels[calcState.doc], price
         ].join(" · "),
         context: "Tanlangan tarif: " + price
