@@ -892,6 +892,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
 .risk-badge{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
 .risk-badge svg{width:15px;height:15px}
 .risk-badge.high{background:rgba(217,105,95,.16);color:#F0A49C;border:1px solid rgba(217,105,95,.36)}
+.risk-badge.mid{background:rgba(245,158,11,.16);color:#FBBF24;border:1px solid rgba(245,158,11,.36)}
 .risk-badge.low{background:rgba(52,211,153,.14);color:#6EE7B7;border:1px solid rgba(52,211,153,.34)}
 .quiz-res h3{margin:20px 0 12px;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.032em;color:#F2FBF7}
 .quiz-res p{color:#A6C4B8;font-size:15.4px;line-height:1.7;max-width:58ch}
@@ -1920,46 +1921,163 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
     <div class="sec-head sec-head--center rv">
       <span class="eyebrow">Bepul tekshiruv</span>
       <h2>Soliq xavfi <span class="hl">ekspress auditi</span></h2>
-      <p>4 ta oddiy savolga javob bering va biznesingizdagi jarima xavfi darajasini darhol aniqlang.</p>
+      <p>15 ta savoldan iborat toʻliq kviz-test orqali biznesingizdagi soliq xavfi darajasini darhol aniqlang.</p>
     </div>
 
     <div class="quiz rv" id="quiz">
       <div class="quiz-head">
-        <b id="quizTitle">1-savol / 4</b>
-        <span id="quizPercent" class="num">25%</span>
+        <b id="quizTitle">1-savol / 15</b>
+        <span id="quizPercent" class="num">7%</span>
       </div>
       <div class="quiz-bar"><i id="quizBar"></i></div>
 
       <div class="quiz-body">
+        <!-- 1 -->
         <div class="quiz-step is-on" data-step="1">
-          <p class="quiz-q">Soʻnggi 6 oy ichida soliq idoralaridan rasmiy xat yoki talabnoma (kameral) oldingizmi?</p>
+          <p class="quiz-q">1. Soʻnggi 6 oy ichida soliq idoralaridan rasmiy xat yoki talabnoma (kameral) oldingizmi?</p>
           <div class="quiz-opts">
-            <button type="button" class="quiz-opt" data-risk="1"><span class="k">A</span>Ha, kelgan va hali toʻliq yopilmagan</button>
-            <button type="button" class="quiz-opt" data-risk="0"><span class="k">B</span>Yoʻq, hammasi joyida / kelmagan</button>
+            <button type="button" class="quiz-opt" data-score="10"><span class="k">A</span>Ha, kelgan va yopilmagan (+10)</button>
+            <button type="button" class="quiz-opt" data-score="3"><span class="k">B</span>Ha, lekin javob berib yopganmiz (+3)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>Yoʻq, hammasi joyida (0)</button>
           </div>
         </div>
 
+        <!-- 2 -->
         <div class="quiz-step" data-step="2">
-          <p class="quiz-q">Bank va kassa operatsiyalari 1C bazasida har kuni oʻz vaqtida aks ettiriladimi?</p>
+          <p class="quiz-q">2. Soliq xavfi darajasi (Soliq.uz dagi "Tax Gap" / svetofor tizimi) qaysi rangda?</p>
           <div class="quiz-opts">
-            <button type="button" class="quiz-opt" data-risk="0"><span class="k">A</span>Ha, har kuni oʻz vaqtida kiritiladi</button>
-            <button type="button" class="quiz-opt" data-risk="1"><span class="k">B</span>Kechikib kiritiladi yoki tartibsiz</button>
+            <button type="button" class="quiz-opt" data-score="15"><span class="k">A</span>Qizil guruhda (+15)</button>
+            <button type="button" class="quiz-opt" data-score="8"><span class="k">B</span>Sariq guruhda (+8)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>Yashil guruhda (0)</button>
+            <button type="button" class="quiz-opt" data-score="10"><span class="k">D</span>Bilmayman / tekshirmaganmiz (+10)</button>
           </div>
         </div>
 
+        <!-- 3 -->
         <div class="quiz-step" data-step="3">
-          <p class="quiz-q">Barcha xodimlaringiz rasman shartnoma bilan rasmiylashtirilgan va mehnat.uz ga kiritilganmi?</p>
+          <p class="quiz-q">3. Korxonangizda QQS toʻlovchisi maqomi bormi va hisobotlar oʻz vaqtida topshiriladimi?</p>
           <div class="quiz-opts">
-            <button type="button" class="quiz-opt" data-risk="0"><span class="k">A</span>Ha, 100% rasmiy</button>
-            <button type="button" class="quiz-opt" data-risk="1"><span class="k">B</span>Baʼzi xodimlar hali kiritilmagan</button>
+            <button type="button" class="quiz-opt" data-score="8"><span class="k">A</span>QQS bor, tuzatishlar (KPP) tez-tez boʻladi (+8)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">B</span>QQS bor, oʻz vaqtida topshiramiz (0)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>Aylanmadan olinadigan soliq (SNO) (0)</button>
           </div>
         </div>
 
+        <!-- 4 -->
         <div class="quiz-step" data-step="4">
-          <p class="quiz-q">Qarzdorlik (debitor va kreditor) boʻyicha oyiga kamida 1 marta sverka dalolatnomasi tuziladimi?</p>
+          <p class="quiz-q">4. Kontragentlar orasida "shubhali" yoki QQS guvohnomasi toʻxtatilgan korxonalar bormi?</p>
           <div class="quiz-opts">
-            <button type="button" class="quiz-opt" data-risk="0"><span class="k">A</span>Ha, doim tuziladi</button>
-            <button type="button" class="quiz-opt" data-risk="1"><span class="k">B</span>Yoʻq yoki juda kamdan-kam</button>
+            <button type="button" class="quiz-opt" data-score="12"><span class="k">A</span>Ha, shunday bitimlar boʻlgan (+12)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">B</span>Yoʻq, har birini tekshiramiz (0)</button>
+            <button type="button" class="quiz-opt" data-score="8"><span class="k">C</span>Bilmayman / Tekshiruv tizimi yoʻq (+8)</button>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="quiz-step" data-step="5">
+          <p class="quiz-q">5. Import yoki eksport operatsiyalari mavjudmi va TN VED kodlari toʻgʻri koʻrsatilganmi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="10"><span class="k">A</span>Import/eksport bor, bojxona savollari boʻlgan (+10)</button>
+            <button type="button" class="quiz-opt" data-score="2"><span class="k">B</span>Import/eksport bor, muammolar yoʻq (+2)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>TIF bilan shugʻullanmaymiz (0)</button>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="quiz-step" data-step="6">
+          <p class="quiz-q">6. Ombor qoldiqlari (TMZ) bilan E-faktura / E-imtiyoz oʻrtasida tafovut bormi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="12"><span class="k">A</span>Ha, amaldagi va dasturdagi qoldiq farq qiladi (+12)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">B</span>Yoʻq, doimiy inventarizatsiya qilinadi (0)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>Omborimiz yoʻq (Xizmat koʻrsatish) (0)</button>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="quiz-step" data-step="7">
+          <p class="quiz-q">7. Naqd pul va terminal tushumlari toʻliq va oʻz vaqtida bankka kirim qilinadimi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="10"><span class="k">A</span>Kechikishlar yoki E-pos nomutanosibligi bor (+10)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">B</span>Ha, barchasi 100% rasmiy kirim qilinadi (0)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>Faqat bank oʻtkazmalari orqali ishlaymiz (0)</button>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="quiz-step" data-step="8">
+          <p class="quiz-q">8. Xodimlarga ish haqi toʻlashda rasmiy va "konvert" usulidan foydalaniladimi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="15"><span class="k">A</span>Bir qismi rasmiylashtirilmagan / eng kam maosh koʻrsatilgan (+15)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">B</span>Barcha xodimlar rasmiy va maoshlar toʻliq koʻrsatiladi (0)</button>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="quiz-step" data-step="9">
+          <p class="quiz-q">9. Mol-mulk va yer soliqlari hamda asosiy vositalar hisobi toʻgʻri yuritilganmi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="8"><span class="k">A</span>Mol-mulk bor, lekin soliq hisobi aniq emas (+8)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">B</span>Barcha mol-mulk soliqlari aniq hisoblangan (0)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>Balansda mol-mulk yoki yer obʼektlari yoʻq (0)</button>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="quiz-step" data-step="10">
+          <p class="quiz-q">10. Buxgalteriya hisobingiz qanday yuritiladi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="6"><span class="k">A</span>Shtatdagi buxgalter / Frilanser (+6)</button>
+            <button type="button" class="quiz-opt" data-score="2"><span class="k">B</span>Buxgalteriya autsorsing kompaniyasi (+2)</button>
+            <button type="button" class="quiz-opt" data-score="12"><span class="k">C</span>Buxgalteriyani rahbarning oʻzi yuritadi (+12)</button>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="quiz-step" data-step="11">
+          <p class="quiz-q">11. Oxirgi 2 yil ichida korxonada bosh buxgalter necha marta almashdi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="10"><span class="k">A</span>2 yoki undan ortiq marta almashdi (+10)</button>
+            <button type="button" class="quiz-opt" data-score="4"><span class="k">B</span>1 marta almashdi (+4)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>Almashmadi / Bir buxgalter ishlaydi (0)</button>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="quiz-step" data-step="12">
+          <p class="quiz-q">12. Soliq imtiyozlaridan (NSP, QQS yoki daromad soligʻi boʻyicha) foydalanasizmi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="10"><span class="k">A</span>Foydalanamiz, lekin hujjatli tasdiq toʻliq emas (+10)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">B</span>Barcha imtiyozlar qonuniy va hujjatli joyida (0)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>Imtiyozlardan foydalanmaymiz (0)</button>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="quiz-step" data-step="13">
+          <p class="quiz-q">13. Taʼsischi va korxona oʻrtasida qarzsizlik (ssuda, moliyaviy yordam) shartnomalari bormi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="10"><span class="k">A</span>Ha, taʼsischi kartasidan pul oʻtkazib/olib turadi (+10)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">B</span>Yoʻq, barchasi qonuniy shartnoma bazasida (0)</button>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="quiz-step" data-step="14">
+          <p class="quiz-q">14. Oxirgi marta qachon mustaqil auditorlik yoki soliq auditi oʻtkazgansiz?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="10"><span class="k">A</span>Umuman oʻtkazmaganmiz (+10)</button>
+            <button type="button" class="quiz-opt" data-score="5"><span class="k">B</span>2 yildan koʻp vaqt oldin oʻtkazilgan (+5)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">C</span>Oxirgi 1 yil ichida oʻtkazilgan (0)</button>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="quiz-step" data-step="15">
+          <p class="quiz-q">15. Buxgalteriya bazasi (1C, Didox, Soliq.uz) koʻrsatkichlari bir-biriga mos keladimi?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-score="12"><span class="k">A</span>Baʼzi hisobotlarda tafovutlar bor (+12)</button>
+            <button type="button" class="quiz-opt" data-score="0"><span class="k">B</span>Barcha tizimlar 100% integratsiyalashgan (0)</button>
+            <button type="button" class="quiz-opt" data-score="8"><span class="k">C</span>Bilmayman (+8)</button>
           </div>
         </div>
 
@@ -1967,10 +2085,17 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
           <span class="risk-badge" id="riskBadge"></span>
           <h3 id="riskTitle"></h3>
           <p id="riskDesc"></p>
-          <div class="quiz-actions">
-            <a class="btn btn--primary" href="#aloqa" data-lead="audit">Konsultatsiya belgilash <svg><use href="#i-arrow"/></svg></a>
-            <a class="btn btn--ghost" href="#aloqa" data-lead="audit"><svg><use href="#i-tg"/></svg>Telegramda yozish</a>
+
+          <div style="margin-top:24px;padding:20px;background:rgba(255,255,255,0.06);border:1px solid var(--rule-i2);border-radius:14px;text-align:left;">
+            <p style="margin-bottom:14px;font-size:14px;color:#EAF6F0;font-weight:600;">
+              Natijalarni batafsil tahlil qilish va bepul soliq konsultatsiyasini olish uchun telefon raqamingizni qoldiring
+            </p>
+            <div class="quiz-actions" style="margin-top:0;">
+              <a class="btn btn--primary" href="#aloqa" data-lead="audit">Bepul konsultatsiya olish <svg><use href="#i-arrow"/></svg></a>
+              <a class="btn btn--ghost" href="#aloqa" data-lead="audit"><svg><use href="#i-tg"/></svg>Telegramda yozish</a>
+            </div>
           </div>
+
           <div style="margin-top:20px"><button type="button" class="quiz-restart" id="quizRestart">Testni qaytadan boshlash</button></div>
         </div>
       </div>
@@ -2834,20 +2959,24 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
   }
 
   /* ---------------------------------------------------------
-     7. express tax-risk audit
+     7. express tax-risk audit (15 Questions & Score Logic)
+     - 0-25 BALL: YASHIL ZONA (Xavf darajasi: YUQORI EMAS)
+     - 26-60 BALL: SARIQ ZONA (Xavf darajasi: O'RTA)
+     - 61-150 BALL: QIZIL ZONA (Xavf darajasi: YUQORI)
      --------------------------------------------------------- */
   var quiz = $("#quiz");
   if (quiz) {
     var qSteps = $$(".quiz-step", quiz);
     var qRes = $("#quizRes"), qBar = $("#quizBar"), qTitle = $("#quizTitle"), qPercent = $("#quizPercent");
-    var qIndex = 0, qRisk = 0;
+    var qIndex = 0, totalScore = 0;
+    var totalQuestions = qSteps.length;
 
     function showStep(i) {
       qSteps.forEach(function (s, n) { s.classList.toggle("is-on", n === i); });
       qRes.classList.remove("is-on");
-      var pct = (i + 1) * 25;
+      var pct = Math.round(((i + 1) / totalQuestions) * 100);
       qBar.style.width = pct + "%";
-      qTitle.textContent = (i + 1) + "-savol / 4";
+      qTitle.textContent = (i + 1) + "-savol / " + totalQuestions;
       qPercent.textContent = pct + "%";
     }
 
@@ -2857,32 +2986,65 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
       qTitle.textContent = "Natija tayyor";
       qPercent.textContent = "100%";
 
-      var high = qRisk >= 2;
-      auditResult = (high ? "Yuqori soliq xavfi" : "Past soliq xavfi") + " (" + qRisk + "/4 xavfli javob)";
+      var zone = "green";
+      var zoneTitle = "";
+      var zoneDesc = "";
+      var badgeClass = "low";
+      var badgeText = "";
+
+      if (totalScore <= 25) {
+        zone = "green";
+        badgeClass = "low";
+        badgeText = "0–25 Ball: Yashil zona · Xavf darajasi: YUQORI EMAS";
+        zoneTitle = "Buxgalteriyangiz yaxshi holatda!";
+        zoneDesc = "Xavf darajasi: YUQORI EMAS. Buxgalteriyangiz yaxshi holatda. Qonunchilikdagi yangiliklarni kuzatib borish yetarli.";
+      } else if (totalScore <= 60) {
+        zone = "yellow";
+        badgeClass = "mid";
+        badgeText = "26–60 Ball: Sariq zona · Xavf darajasi: OʻRTA";
+        zoneTitle = "Diqqat: Zaif nuqtalar aniqlandi!";
+        zoneDesc = "Xavf darajasi: OʻRTA. Kameral tekshiruv va jarimalar solinishi mumkin boʻlgan zaif nuqtalar mavjud. Mutaxassis bilan profilaktik tahlil oʻtkazish tavsiya etiladi.";
+      } else {
+        zone = "red";
+        badgeClass = "high";
+        badgeText = "61–150 Ball: Qizil zona · Xavf darajasi: YUQORI";
+        zoneTitle = "Jiddiy soliq va jarima xavfi mavjud!";
+        zoneDesc = "Xavf darajasi: YUQORI. Yirik jarima va risklar mavjud. Zudlik bilan profilaktik audit zarur.";
+      }
+
+      auditResult = badgeText + " (" + totalScore + " ball)";
       var badge = $("#riskBadge");
-      badge.className = "risk-badge " + (high ? "high" : "low");
-      badge.innerHTML = '<svg><use href="#i-' + (high ? "warn" : "shield") + '"/></svg>' +
-        (high ? "Yuqori soliq xavfi aniqlandi" : "Past soliq xavfi");
-      $("#riskTitle").textContent = high
-        ? "Soliq idoralari tomonidan jarima xavfi bor!"
-        : "Buxgalteriyangiz nisbatan yaxshi holatda!";
-      $("#riskDesc").textContent = high
-        ? "Javoblaringizga koʻra, buxgalteriyangizda oʻtkazib yuborilgan ishlar yoki xatolar mavjud boʻlishi mumkin. Asadbek Mamarasulov bilan zudlik bilan konsultatsiya belgilashni tavsiya etamiz."
-        : "Barakalla! Tizimingizda katta xavflar yoʻq, lekin soliq optimizatsiyasi va jarayonlarni avtomatlashtirish orqali yanada koʻproq mablagʻ tejashingiz mumkin.";
+      badge.className = "risk-badge " + badgeClass;
+      badge.innerHTML = '<svg><use href="#i-' + (zone === 'green' ? "shield" : "warn") + '"/></svg>' + badgeText;
+      $("#riskTitle").textContent = zoneTitle;
+      $("#riskDesc").textContent = zoneDesc;
       qRes.classList.add("is-on");
     }
 
     $$(".quiz-opt", quiz).forEach(function (btn) {
       btn.addEventListener("click", function () {
-        qRisk += parseInt(btn.getAttribute("data-risk"), 10) || 0;
+        var score = parseInt(btn.getAttribute("data-score") || "0", 10);
+        totalScore += score;
         qIndex++;
-        if (qIndex < qSteps.length) showStep(qIndex); else showResult();
+        if (qIndex < totalQuestions) {
+          showStep(qIndex);
+        } else {
+          showResult();
+        }
       });
     });
 
-    $("#quizRestart").addEventListener("click", function () {
-      qIndex = 0; qRisk = 0; auditResult = ""; showStep(0);
-    });
+    var restartBtn = $("#quizRestart");
+    if (restartBtn) {
+      restartBtn.addEventListener("click", function () {
+        qIndex = 0;
+        totalScore = 0;
+        auditResult = "";
+        showStep(0);
+      });
+    }
+
+    showStep(0);
   }
 
   /* ---------------------------------------------------------
