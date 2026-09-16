@@ -1,0 +1,13 @@
+{
+  "name": "united-finance-team-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "United Finance Team sayti va Telegram lid serveri",
+  "scripts": {
+    "start": "node server.js",
+    "guruh": "node scripts/link-group.js"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}

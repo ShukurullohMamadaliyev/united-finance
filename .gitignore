@@ -1,0 +1,4 @@
+# maxfiy maʼlumotlar va lidlar — hech qachon repozitoriyga tushmasin
+.env
+data/
+node_modules/
