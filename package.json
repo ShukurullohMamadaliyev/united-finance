@@ -1,10 +1,10 @@
 {
   "name": "united-finance-team-site",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "United Finance Team sayti va Telegram lid serveri",
+  "description": "United Finance Team sayti: Vercel'da public/ + api/lead.js (Telegram lidlari)",
   "scripts": {
-    "start": "node server.js",
+    "start": "node dev-server.js",
     "guruh": "node scripts/link-group.js"
   },
   "engines": {
