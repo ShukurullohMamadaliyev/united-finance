@@ -405,7 +405,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .tape::before,.tape::after{content:"";position:absolute;top:0;bottom:0;width:130px;z-index:2;pointer-events:none}
 .tape::before{left:0;background:linear-gradient(90deg,var(--ink),transparent)}
 .tape::after{right:0;background:linear-gradient(270deg,var(--ink),transparent)}
-.tape-label{position:absolute;left:50%;top:-11px;transform:translateX(-50%);background:var(--ink);padding:0 14px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#7A9489;z-index:3}
 .tape-track{display:flex;gap:56px;width:max-content;animation:tape 38s linear infinite}
 .tape:hover .tape-track{animation-play-state:paused}
 @keyframes tape{to{transform:translateX(-50%)}}
@@ -1709,7 +1708,6 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
      systems tape
      ============================================================ -->
 <section class="tape" aria-label="Biz ishlaydigan tizimlar">
-  <span class="tape-label">Ishlaydigan tizimlarimiz</span>
   <div class="tape-track" id="tapeTrack">
     <span class="tape-item"><svg><use href="#i-layers"/></svg>1C 8.3</span>
     <span class="tape-item"><svg><use href="#i-file-check"/></svg>Soliq.uz</span>
