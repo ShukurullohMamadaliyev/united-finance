@@ -249,10 +249,18 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 @media (max-width:1080px){
   .nav{display:none}
-  .burger{display:grid;margin-left:auto}
+  .hdr-cta{margin-left:auto}
+  .burger{display:grid}
   .hdr-cta .btn{display:none}
 }
-@media (max-width:420px){:root{--gutter:20px}}
+@media (max-width:480px){
+  :root{--gutter:16px}
+  .hdr-in{gap:12px;height:68px}
+  .brand-mark{width:36px;height:36px}
+  .brand-name{font-size:16px}
+  .brand-sub{font-size:8px;letter-spacing:.14em}
+  .burger{width:40px;height:40px}
+}
 
 /* ============================================================
    hero
@@ -302,6 +310,13 @@ ul,ol{margin:0;padding:0;list-style:none}
 @keyframes underline{to{background-size:100% .07em}}
 .hero-lead{margin-top:26px;font-size:clamp(16.5px,1.5vw,19px);color:var(--muted);max-width:57ch;line-height:1.72}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+@media (max-width:580px){
+  .hero-pill{font-size:11.5px;padding:6px 12px 6px 6px;max-width:100%}
+  .hero h1{font-size:clamp(30px,7.5vw,44px);margin-top:20px}
+  .hero-lead{font-size:15px;margin-top:18px}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:12px;margin-top:24px}
+  .hero-actions .btn{width:100%;white-space:normal;text-align:center;padding:15px 20px;font-size:15px;justify-content:center}
+}
 
 
 /* ============================================================
@@ -473,7 +488,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .cmp-cell--label{padding-top:16px;color:var(--brass-2);text-transform:uppercase;font-size:11px;letter-spacing:.14em}
   .cmp-cell--them::before,.cmp-cell--us::before{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#7A9489;flex:none;width:74px}
   .cmp-cell--them::before{content:"Shtatda"}
-  .cmp-cell--us::before{content:"Balans"}
+  .cmp-cell--us::before{content:"M. Mamadaliyev"}
   .cmp-cell--us{border-radius:10px;margin:2px 12px 8px}
 }
 
@@ -553,16 +568,20 @@ ul,ol{margin:0;padding:0;list-style:none}
    FAQ
    ============================================================ */
 .faq{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,64px);align-items:start}
-@media (max-width:940px){.faq{grid-template-columns:1fr}}
+@media (max-width:940px){
+  .faq{grid-template-columns:1fr;gap:32px}
+  .faq-aside{position:static;top:auto}
+}
 .faq-aside{position:sticky;top:110px}
 .faq-list{border-top:1px solid var(--rule)}
-.acc{border-bottom:1px solid var(--rule)}
+.acc{border-bottom:1px solid var(--rule);position:relative}
 .acc-btn{
   width:100%;background:transparent;border:none;cursor:pointer;text-align:left;
-  display:flex;align-items:flex-start;gap:18px;padding:24px 4px;
-  font-family:var(--f-display);font-weight:700;font-size:clamp(16px,1.7vw,18.5px);letter-spacing:-.024em;
-  color:var(--text);transition:color .3s;line-height:1.4;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:20px 4px;
+  font-family:var(--f-display);font-weight:700;font-size:clamp(15.5px,1.7vw,18.5px);letter-spacing:-.024em;
+  color:var(--text);transition:color .3s;line-height:1.42;
 }
+.acc-btn > span:not(.acc-ic){flex:1}
 .acc-btn:hover{color:var(--green-3)}
 .acc-ic{width:26px;height:26px;flex:none;border-radius:8px;border:1px solid var(--rule-2);display:grid;place-items:center;position:relative;margin-top:1px;transition:background-color .35s,border-color .35s,transform .45s var(--ease)}
 .acc-ic::before,.acc-ic::after{content:"";position:absolute;background:var(--text);border-radius:2px;transition:transform .4s var(--ease),background-color .35s}
@@ -571,10 +590,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .acc.is-open .acc-ic{background:var(--grad);border-color:transparent;transform:rotate(90deg)}
 .acc.is-open .acc-ic::before,.acc.is-open .acc-ic::after{background:#04231A}
 .acc.is-open .acc-ic::after{transform:scaleY(0)}
-.acc-body{overflow:hidden;height:0;transition:height .45s var(--ease)}
-.acc-body-in{padding:0 4px 26px 60px;color:var(--muted);font-size:15.4px;line-height:1.72;max-width:66ch}
+.acc-body{overflow:hidden;height:0;transition:height .38s var(--ease)}
+.acc-body-in{padding:0 4px 22px 4px;color:var(--muted);font-size:15px;line-height:1.7;max-width:66ch}
 .acc-body-in strong{color:var(--text);font-weight:600}
-@media (max-width:560px){.acc-body-in{padding-left:4px}}
 
 /* ============================================================
    contact
@@ -3056,12 +3074,15 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
       });
       acc.classList.toggle("is-open", !open);
       btn.setAttribute("aria-expanded", String(!open));
-      body.style.height = open ? "0px" : inner.offsetHeight + "px";
+      body.style.height = open ? "0px" : inner.scrollHeight + "px";
     });
   });
   window.addEventListener("resize", function () {
     accs.forEach(function (acc) {
-      if (acc.classList.contains("is-open")) $(".acc-body", acc).style.height = $(".acc-body-in", acc).offsetHeight + "px";
+      if (acc.classList.contains("is-open")) {
+        var inner = $(".acc-body-in", acc);
+        $(".acc-body", acc).style.height = inner.scrollHeight + "px";
+      }
     });
   });
 
