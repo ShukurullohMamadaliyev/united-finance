@@ -527,9 +527,17 @@ ul,ol{margin:0;padding:0;list-style:none}
   .steps{grid-template-columns:1fr;gap:0}
   .steps::before{left:31px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(180deg,transparent,var(--rule-2) 5%,var(--rule-2) 95%,transparent)}
   .step{padding:0 0 34px 84px}
-  .step:last-child{padding-bottom:0}
+  .step:first-child{padding-left:84px}
+  .step:last-child{padding-bottom:0;padding-right:0}
   .step-n{position:absolute;left:0;top:0}
   .step h3{margin-top:12px}
+}
+@media (max-width:580px){
+  .steps::before{left:26px}
+  .step{padding:0 0 28px 70px}
+  .step:first-child{padding-left:70px}
+  .step-n{width:52px;height:52px;font-size:14px}
+  .step h3{font-size:16px;margin-top:8px}
 }
 
 /* ============================================================
@@ -1727,7 +1735,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
         <svg><use href="#i-quote"/></svg>
         Assalomu alaykum! Men <b>Muhammadjon Mamadaliyev</b> — professional moliyachi-buxgalter va soliq
         maslahatchisiman. Biznesingiz buxgalteriyasini qonuniy tarzda yuritaman,
-        soliq yukini maqbullashtiraman hamda jarimalardan 100% himoya qilaman va moliyaviy risklarni oldindan baholayman.
+        soliq yukini maqbullashtiraman hamda jarimalardan himoya qilaman va moliyaviy risklarni oldindan baholayman.
         <div class="founder-sign">
           <span class="fs-av" aria-hidden="true"></span>
           <span class="q-meta">
@@ -1748,7 +1756,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
         </div>
         <div class="fl-item">
           <span class="fl-ic"><svg><use href="#i-headset"/></svg></span>
-          <div><h4>15 daqiqada qayta aloqa</h4><p>Har qanday soʻrovga ish vaqtida 15 daqiqa ichida shaxsan javob beraman — Telegram yoki telefon orqali.</p></div>
+          <div><h4>15–120 daqiqada qayta aloqa</h4><p>Har qanday soʻrovga ish vaqtida 15–120 daqiqa ichida shaxsan javob beraman — Telegram yoki telefon orqali.</p></div>
         </div>
         <div class="fl-item">
           <span class="fl-ic"><svg><use href="#i-building"/></svg></span>
@@ -1993,7 +2001,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
           <button class="btn btn--primary btn--block" type="button" id="calcOrder">Ushbu tarifda buyurtma berish <svg><use href="#i-arrow"/></svg></button>
         </div>
 
-        <p class="co-note">Aniq narx birlamchi hujjatlar tahlilidan soʻng belgilanadi. 15 daqiqada siz bilan bogʻlanib barcha savollarga javob beramiz.</p>
+        <p class="co-note">Aniq narx birlamchi hujjatlar tahlilidan soʻng belgilanadi. 15–120 daqiqa ichida siz bilan bogʻlanib barcha savollarga javob beraman.</p>
       </aside>
     </div>
   </div>
@@ -2210,7 +2218,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
       <div class="stat"><i>05</i><b class="counter num" data-to="5" data-suffix="+">0</b><span>Yil buxgalteriya va soliq tajribasi</span></div>
       <div class="stat"><i>06</i><b class="counter num" data-to="3.8" data-decimals="1" data-suffix=" mlrd+">0</b><span>Soʻm mijozlarga tejab berilgan soliq</span></div>
       <div class="stat"><i>07</i><b class="counter num" data-to="100" data-suffix="%">0</b><span>Soliq idoralari bilan ishda kafolat</span></div>
-      <div class="stat"><i>08</i><b class="counter num" data-to="15" data-suffix=" daq">0</b><span>Ichida tezkor qayta aloqa vaqti</span></div>
+      <div class="stat"><i>08</i><b class="num">15–120 daq</b><span>Ichida tezkor qayta aloqa vaqti</span></div>
     </div>
   </div>
 </section>
@@ -2266,7 +2274,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
       <div class="cmp-row">
         <div class="cmp-cell cmp-cell--label">Qayta aloqa tezligi</div>
         <div class="cmp-cell cmp-cell--them"><svg><use href="#i-x-c"/></svg>Faqat ish joyida boʻlganida</div>
-        <div class="cmp-cell cmp-cell--us"><svg><use href="#i-check-c"/></svg>15 daqiqa ichida — Telegram yoki telefon</div>
+        <div class="cmp-cell cmp-cell--us"><svg><use href="#i-check-c"/></svg>15–120 daqiqa ichida — Telegram yoki telefon</div>
       </div>
       <div class="cmp-row">
         <div class="cmp-cell cmp-cell--label">Ishni boshlash muddati</div>
@@ -2407,7 +2415,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
         <span class="eyebrow">Professional Buxgalter</span>
         <h2>Sizning shaxsiy <span class="hl">bosh buxgalteringiz</span></h2>
       </div>
-      <p>Moliyangiz xavfsizligi, soliq shaffofligi va buxgalteriya tartibini professional darajada shaxsan nazorat qilaman — har bir hisobot uchun 100% oʻzim javobgarman.</p>
+      <p>Moliyangiz xavfsizligi, soliq shaffofligi va buxgalteriya tartibini professional darajada shaxsan nazorat qilaman — har bir hisobot uchun oʻzim javobgarman.</p>
     </div>
 
     <div class="solo-expert-wrap rv" style="--d:80ms">
@@ -2455,7 +2463,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
           <div class="solo-skill-item">
             <svg><use href="#i-headset"/></svg>
             <div>
-              <b>15 daqiqada tezkor aloqa</b>
+              <b>15–120 daqiqada tezkor aloqa</b>
               <span>Telegram va telefon orqali shaxsan muloqot</span>
             </div>
           </div>
@@ -2478,7 +2486,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
       <span class="eyebrow">Savol-javob</span>
       <h2 style="font-size:clamp(28px,3.6vw,44px)">Koʻp beriladigan savollar</h2>
       <p style="margin-top:18px;color:var(--muted);font-size:16px;max-width:38ch">
-        Javobini topa olmadingizmi? Bevosita Muhammadjonga yozing — ish vaqtida 15 daqiqa ichida javob olasiz.
+        Javobini topa olmadingizmi? Bevosita Muhammadjonga yozing — ish vaqtida 15–120 daqiqa ichida javob olasiz.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px">
         <a class="btn btn--solid btn--sm" href="#aloqa" data-lead="Savol-javob — Telegramda yozish"><svg><use href="#i-tg"/></svg>Telegramda yozish</a>
@@ -2566,14 +2574,14 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
     <div class="sec-head rv">
       <span class="eyebrow">Aloqa</span>
       <h2>Soliq va buxgalteriya muammolarini <span class="hl">bugun hal qiling</span></h2>
-      <p>Birinchi 30 daqiqalik konsultatsiya mutlaqo bepul. Formani toʻldiring — 15 daqiqa ichida siz bilan shaxsan bogʻlanaman.</p>
+      <p>Birinchi 30 daqiqalik konsultatsiya mutlaqo bepul. Formani toʻldiring — 15–120 daqiqa ichida siz bilan shaxsan bogʻlanaman.</p>
     </div>
 
     <div class="contact">
       <div class="form-card form-card--light rv">
         <div class="lead-body">
           <h3 class="lead-title">Bepul konsultatsiya</h3>
-          <p class="lead-sub">Raqamingizni qoldiring — 15 daqiqa ichida qoʻngʻiroq qilaman. Birinchi 30 daqiqa bepul.</p>
+          <p class="lead-sub">Raqamingizni qoldiring — 15–120 daqiqa ichida qoʻngʻiroq qilaman. Birinchi 30 daqiqa bepul.</p>
           <form class="lead-form" novalidate data-source="Aloqa boʻlimi — forma">
             <div class="lead-field">
               <label for="li-phone">Telefon raqami <sup>*</sup></label>
@@ -2603,7 +2611,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
         <div class="lead-done" role="status" aria-live="polite">
           <div class="ok-ic"><svg aria-hidden="true"><use href="#i-check"/></svg></div>
           <h3>Soʻrovingiz qabul qilindi!</h3>
-          <p>Rahmat! 15 daqiqa ichida siz bilan shaxsan bogʻlanaman.</p>
+          <p>Rahmat! 15–120 daqiqa ichida siz bilan shaxsan bogʻlanaman.</p>
         </div>
       </div>
 
@@ -2623,7 +2631,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
           </div>
           <div class="ct">
             <span class="ct-ic"><svg><use href="#i-clock"/></svg></span>
-            <span><small>Qayta aloqa</small><b>15 daqiqa ichida</b><p>Ish vaqtida kelgan har bir soʻrovga</p></span>
+            <span><small>Qayta aloqa</small><b>15–120 daqiqa ichida</b><p>Ish vaqtida kelgan har bir soʻrovga</p></span>
           </div>
         </div>
 
@@ -2699,7 +2707,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
         <div class="ftr-contact">
           <a href="tel:+998950142004"><svg><use href="#i-phone"/></svg>+998 95 014 20 04</a>
           <div><svg><use href="#i-pin"/></svg>Toshkent shahar, Olmazor tumani,<br>Qoraqamish 2/4</div>
-          <div><svg><use href="#i-clock"/></svg>Qayta aloqa — 15 daqiqa ichida</div>
+          <div><svg><use href="#i-clock"/></svg>Qayta aloqa — 15–120 daqiqa ichida</div>
         </div>
       </div>
     </div>
@@ -2722,7 +2730,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
     <div class="lead-body">
       <span class="eyebrow">Bepul konsultatsiya</span>
       <h3 class="lead-title" id="leadModalTitle">Siz bilan bogʻlanamiz</h3>
-      <p class="lead-sub" id="leadModalSub">Raqamingizni qoldiring — 15 daqiqa ichida qoʻngʻiroq qilamiz yoki Telegramda yozamiz.</p>
+      <p class="lead-sub" id="leadModalSub">Raqamingizni qoldiring — 15–120 daqiqa ichida qoʻngʻiroq qilamiz yoki Telegramda yozamiz.</p>
       <p class="lead-context" id="leadContext"></p>
       <form class="lead-form" novalidate>
             <div class="lead-field">
@@ -2753,7 +2761,7 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
     <div class="lead-done" role="status" aria-live="polite">
           <div class="ok-ic"><svg aria-hidden="true"><use href="#i-check"/></svg></div>
           <h3>Soʻrovingiz qabul qilindi!</h3>
-          <p>Rahmat! Mutaxassisimiz 15 daqiqa ichida siz bilan bogʻlanadi.</p>
+          <p>Rahmat! Mutaxassisimiz 15–120 daqiqa ichida siz bilan bogʻlanadi.</p>
           <button class="btn btn--ghost" type="button" data-close>Yopish</button>
         </div>
   </div>
@@ -2928,9 +2936,19 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
       }
     } else {
       // MChJ / XK / Chet el korxonasi
-      basePrice = 3200000;
-      stepPriceEmp = 200000;
-      stepPriceDoc = 200000;
+      if (isAylanma) {
+        // MChJ (Aylanma 4%)
+        var turnoverBase = [1200000, 1800000, 2400000, 3200000];
+        var turnIdx = Math.min(Math.max(calcState.turn - 1, 0), 3);
+        basePrice = turnoverBase[turnIdx];
+        stepPriceEmp = 150000;
+        stepPriceDoc = 150000;
+      } else {
+        // MChJ (QQS / Umumiy rejim)
+        basePrice = 3200000;
+        stepPriceEmp = 200000;
+        stepPriceDoc = 200000;
+      }
     }
 
     var empStep = typeof calcState.emp === "number" ? calcState.emp : 0;
@@ -2957,6 +2975,11 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
   }
 
   function renderCalc() {
+    var isMchj = calcState.form === "mchj" || calcState.form === "foreign";
+    var aylanmaBtn = $('.opts[data-group="tax"] button[data-val="aylanma"]');
+    var aylanmaText = isMchj ? "Aylanmadan soliq (4%)" : "Aylanmadan soliq (1%)";
+    if (aylanmaBtn) aylanmaBtn.textContent = aylanmaText;
+
     var next = computePrice();
     animatePrice(shownPrice, next);
     shownPrice = next;
@@ -2964,10 +2987,14 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
     var turnIdx = Math.min(Math.max(calcState.turn - 1, 0), turnoverLabels.length - 1);
     var empIdx = Math.min(Math.max(calcState.emp, 0), employeeLabels.length - 1);
 
+    var currentTaxLabel = (calcState.tax === "aylanma" || calcState.tax === "turnover")
+      ? aylanmaText
+      : (taxLabels[calcState.tax] || "QQS / Umumiy rejim");
+
     $("#turnoverVal").textContent = turnoverLabels[turnIdx];
     $("#empVal").textContent      = employeeLabels[empIdx];
     $("#sumForm").textContent = formLabels[calcState.form] || "YaTT";
-    $("#sumTax").textContent  = taxLabels[calcState.tax] || "Aylanmadan soliq";
+    $("#sumTax").textContent  = currentTaxLabel;
     $("#sumTurn").textContent = turnoverLabels[turnIdx];
     $("#sumEmp").textContent  = employeeLabels[empIdx];
     $("#sumDoc").textContent  = docLabels[calcState.doc] || "20 tagacha";
@@ -2996,13 +3023,19 @@ input[type=range]:focus-visible{outline:2px solid var(--green-2);outline-offset:
     });
 
     $("#calcOrder").addEventListener("click", function () {
+      var isMchj = calcState.form === "mchj" || calcState.form === "foreign";
+      var aylanmaText = isMchj ? "Aylanmadan soliq (4%)" : "Aylanmadan soliq (1%)";
+      var currentTaxLabel = (calcState.tax === "aylanma" || calcState.tax === "turnover")
+        ? aylanmaText
+        : (taxLabels[calcState.tax] || "QQS / Umumiy rejim");
+
       var price = groupThousands(computePrice()) + " soʻm/oy";
       var turnIdx = Math.min(Math.max(calcState.turn - 1, 0), turnoverLabels.length - 1);
       var empIdx = Math.min(Math.max(calcState.emp, 0), employeeLabels.length - 1);
       openLead({
         source: "Narx kalkulyatori",
         details: [
-          formLabels[calcState.form], taxLabels[calcState.tax],
+          formLabels[calcState.form], currentTaxLabel,
           turnoverLabels[turnIdx], employeeLabels[empIdx],
           docLabels[calcState.doc], price
         ].join(" · "),
