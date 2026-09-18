@@ -22,7 +22,6 @@
   });
 })();
 
->
 (function () {
   "use strict";
 
@@ -749,7 +748,6 @@
   });
 })();
 
->
 (function () {
   var messagesHistory = [];
   var isSending = false;
