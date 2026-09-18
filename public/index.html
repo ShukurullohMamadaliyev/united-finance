@@ -568,11 +568,11 @@ ul,ol{margin:0;padding:0;list-style:none}
    FAQ
    ============================================================ */
 .faq{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,64px);align-items:start}
+.faq-aside{position:sticky;top:110px}
 @media (max-width:940px){
   .faq{grid-template-columns:1fr;gap:32px}
-  .faq-aside{position:static;top:auto}
+  .faq-aside{position:static !important;top:auto !important}
 }
-.faq-aside{position:sticky;top:110px}
 .faq-list{border-top:1px solid var(--rule)}
 .acc{border-bottom:1px solid var(--rule);position:relative}
 .acc-btn{
