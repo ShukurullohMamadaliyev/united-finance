@@ -1,21 +1,6 @@
-const CACHE_NAME = 'united-finance-v4';
-const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/css/style.min.css',
-  '/js/app.min.js',
-  '/images/icon-180.png?v=3',
-  '/images/icon-192.png?v=3',
-  '/images/icon-512.png?v=3'
-];
+const CACHE_NAME = 'united-finance-v5';
 
-self.addEventListener('install', function (event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll(ASSETS);
-    }).catch(function () {})
-  );
+self.addEventListener('install', function () {
   self.skipWaiting();
 });
 
@@ -23,12 +8,12 @@ self.addEventListener('activate', function (event) {
   event.waitUntil(
     caches.keys().then(function (keys) {
       return Promise.all(
-        keys.filter(function (key) { return key !== CACHE_NAME; })
-            .map(function (key) { return caches.delete(key); })
+        keys.map(function (key) { return caches.delete(key); })
       );
+    }).then(function () {
+      return self.clients.claim();
     })
   );
-  self.clients.claim();
 });
 
 self.addEventListener('fetch', function (event) {
@@ -37,7 +22,7 @@ self.addEventListener('fetch', function (event) {
   if (url.pathname.startsWith('/api/')) return;
 
   event.respondWith(
-    fetch(event.request)
+    fetch(event.request, { cache: 'no-cache' })
       .then(function (response) {
         if (response && response.status === 200 && response.type === 'basic') {
           const clone = response.clone();
