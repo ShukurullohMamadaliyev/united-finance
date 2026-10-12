@@ -1,13 +1,13 @@
-const CACHE_NAME = 'united-finance-v1';
+const CACHE_NAME = 'united-finance-v2';
 const ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
   '/css/style.min.css',
   '/js/app.min.js',
-  '/images/icon-180.png',
-  '/images/icon-192.png',
-  '/images/icon-512.png'
+  '/images/icon-180.png?v=2',
+  '/images/icon-192.png?v=2',
+  '/images/icon-512.png?v=2'
 ];
 
 self.addEventListener('install', function (event) {
